@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界的金門 — 閩南語聲音地圖</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LANDING -->
+  <div id="landing" class="screen active">
+    <h1>世界的<span>金門</span></h1>
+    <p class="subtitle">閩南語聲音地圖</p>
+    <p class="desc">
+      金門人走向世界，帶走了語言。<br>
+      同一個詞，在檳城、新加坡、金門，<br>
+      聽起來一樣，又不一樣。<br><br>
+      錄下你的聲音，聽聽世界各地的金門人怎麼說。
+    </p>
+    <button class="btn-primary" id="start-btn">開始錄音</button>
+  </div>
+
+  <!-- RECORD -->
+  <div id="record-screen" class="screen">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <p class="word-counter" id="word-counter">1 / 5</p>
+    <div class="word-display" id="word-display">食飯</div>
+    <p class="word-romanization" id="word-romanization">chia̍h-pn̄g</p>
+    <p class="word-meaning" id="word-meaning">吃飯</p>
+    <div class="waveform" id="waveform"></div>
+    <button class="record-btn" id="record-btn">
+      <div class="inner"></div>
+    </button>
+    <p class="record-hint" id="record-hint">按下開始錄音</p>
+    <button class="skip-btn" id="skip-btn">跳過這個詞 →</button>
+  </div>
+
+  <!-- MAP -->
+  <div id="map-screen" class="screen">
+    <div class="map-header">
+      <h2>點擊地圖上的光點，聽聽那裡的聲音</h2>
+      <p id="map-subtitle"></p>
+    </div>
+    <div id="map"></div>
+    <div class="stats-bar">
+      <span class="stat">你的錄音：<strong id="my-count">0</strong> 段</span>
+      <span class="stat">全球錄音：<strong>47</strong></span>
+      <span class="stat">地區：<strong>6</strong></span>
+    </div>
+    <button class="float-btn" id="back-to-record" title="繼續錄音">🎙</button>
+  </div>
+
+  <!-- THANK YOU -->
+  <div class="thank-you" id="thank-you">
+    <h2>多謝你的聲音</h2>
+    <p>你的錄音已經加入世界的金門聲音地圖。<br>現在來聽聽其他地方的人怎麼說同一個詞。</p>
+    <button class="btn-primary" id="explore-map-btn" style="margin-top: 1rem;">探索聲音地圖</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
