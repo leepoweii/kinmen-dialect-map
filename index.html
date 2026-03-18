@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>世界的金門 — 閩南語聲音地圖</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Serif+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -32,9 +32,12 @@
       <div class="progress-fill" id="progress-fill"></div>
     </div>
     <p class="word-counter" id="word-counter">1 / 5</p>
-    <div class="word-display" id="word-display">食飯</div>
-    <p class="word-romanization" id="word-romanization">chia̍h-pn̄g</p>
-    <p class="word-meaning" id="word-meaning">吃飯</p>
+    <div class="word-display" id="word-display">吃飯</div>
+    <p class="word-hint" id="word-hint">用你的閩南語說這個詞</p>
+    <div class="word-reveal" id="word-reveal" style="display:none;">
+      <p class="word-dialect" id="word-dialect">食飯</p>
+      <p class="word-romanization" id="word-romanization">chia̍h-pn̄g · shí fàn</p>
+    </div>
     <div class="waveform" id="waveform"></div>
     <button class="record-btn" id="record-btn">
       <div class="inner"></div>

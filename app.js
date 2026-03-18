@@ -137,16 +137,28 @@ document.getElementById('start-btn').addEventListener('click', function() {
   initWaveform();
 });
 
-// Word display
+// Word display — show MEANING as prompt, hide dialect chars until after recording
 function updateWordDisplay() {
   var w = selectedWords[currentWordIdx];
-  document.getElementById('word-display').textContent = getWord(w);
-  document.getElementById('word-romanization').textContent = w.poj + '  ·  ' + w.pinyin;
-  document.getElementById('word-meaning').textContent = getMeaning(w);
+  // Show meaning as the big prompt (not dialect characters — avoid influencing pronunciation)
+  document.getElementById('word-display').textContent = getMeaning(w);
+  document.getElementById('word-hint').textContent = lang === 'cn'
+    ? '用你的闽南语说这个词'
+    : '用你的閩南語說這個詞';
+  // Hide the reveal section until after recording
+  document.getElementById('word-reveal').style.display = 'none';
   document.getElementById('word-counter').textContent = (currentWordIdx + 1) + ' / ' + selectedWords.length;
   document.getElementById('progress-fill').style.width = ((currentWordIdx) / selectedWords.length * 100) + '%';
   document.getElementById('record-hint').textContent = t('record_hint');
   document.getElementById('record-btn').classList.remove('recording');
+}
+
+// After recording: reveal dialect characters + romanization
+function revealDialectInfo() {
+  var w = selectedWords[currentWordIdx];
+  document.getElementById('word-dialect').textContent = getWord(w);
+  document.getElementById('word-romanization').textContent = w.poj + '  ·  ' + w.pinyin;
+  document.getElementById('word-reveal').style.display = 'block';
 }
 
 // Language toggle
@@ -229,10 +241,12 @@ document.getElementById('record-btn').addEventListener('click', function() {
           blob: blob,
           url: URL.createObjectURL(blob),
         });
-        stream.getTracks().forEach(function(t) { t.stop(); });
+        stream.getTracks().forEach(function(track) { track.stop(); });
         myCount++;
         document.getElementById('my-count').textContent = myCount;
-        nextWord();
+        // Reveal dialect info after recording, pause before next word
+        revealDialectInfo();
+        setTimeout(nextWord, 2000);
       };
 
       mediaRecorder.start();
