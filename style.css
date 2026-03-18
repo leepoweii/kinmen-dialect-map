@@ -127,6 +127,22 @@ body {
   justify-content: center;
 }
 
+.word-display-s {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.2rem;
+  min-height: 1.4rem;
+}
+
+.word-display-en {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
 .word-hint {
   font-size: 0.9rem;
   color: var(--color-text-secondary);

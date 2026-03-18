@@ -1,34 +1,34 @@
 // ===== 世界的金門 — 閩南語聲音地圖 =====
 
 const WORDS = [
-  { word: '食飯', word_s: '食饭', poj: 'chia̍h-pn̄g', pinyin: 'shí fàn', meaning_t: '吃飯', meaning_s: '吃饭' },
-  { word: '厝', word_s: '厝', poj: 'chhù', pinyin: 'cuò', meaning_t: '家、房子', meaning_s: '家、房子' },
-  { word: '歡喜', word_s: '欢喜', poj: 'hoaⁿ-hí', pinyin: 'huān xǐ', meaning_t: '高興', meaning_s: '高兴' },
-  { word: '落雨', word_s: '落雨', poj: "lo̍h-hō͘", pinyin: 'luò yǔ', meaning_t: '下雨', meaning_s: '下雨' },
-  { word: '𨒪迌', word_s: '𨒪迌', poj: 'chhit-thô', pinyin: 'qī tó', meaning_t: '出去玩', meaning_s: '出去玩' },
-  { word: '媠', word_s: '媠', poj: 'súi', pinyin: 'shuǐ', meaning_t: '漂亮', meaning_s: '漂亮' },
-  { word: '多謝', word_s: '多谢', poj: 'to-siā', pinyin: 'duō xiè', meaning_t: '謝謝', meaning_s: '谢谢' },
-  { word: '走路', word_s: '走路', poj: "cháu-lō͘", pinyin: 'zǒu lù', meaning_t: '走路', meaning_s: '走路' },
-  { word: '天氣', word_s: '天气', poj: "thiⁿ-khì", pinyin: 'tiān qì', meaning_t: '天氣', meaning_s: '天气' },
-  { word: '海', word_s: '海', poj: 'hái', pinyin: 'hǎi', meaning_t: '海', meaning_s: '海' },
-  { word: '囝仔', word_s: '囝仔', poj: 'gín-á', pinyin: 'jiǎn zǎi', meaning_t: '小孩', meaning_s: '小孩' },
-  { word: '做工', word_s: '做工', poj: 'chò-kang', pinyin: 'zuò gōng', meaning_t: '工作', meaning_s: '工作' },
-  { word: '暗暝', word_s: '暗暝', poj: 'àm-mê', pinyin: 'àn míng', meaning_t: '晚上', meaning_s: '晚上' },
-  { word: '日頭', word_s: '日头', poj: "ji̍t-thâu", pinyin: 'rì tóu', meaning_t: '太陽', meaning_s: '太阳' },
-  { word: '風', word_s: '风', poj: 'hong', pinyin: 'fēng', meaning_t: '風', meaning_s: '风' },
+  { word: '食飯', word_s: '食饭', poj: 'chia̍h-pn̄g', pinyin: 'shí fàn', meaning_t: '吃飯', meaning_s: '吃饭', meaning_en: 'To eat / Having a meal' },
+  { word: '厝', word_s: '厝', poj: 'chhù', pinyin: 'cuò', meaning_t: '家、房子', meaning_s: '家、房子', meaning_en: 'Home / House' },
+  { word: '歡喜', word_s: '欢喜', poj: 'hoaⁿ-hí', pinyin: 'huān xǐ', meaning_t: '高興', meaning_s: '高兴', meaning_en: 'Happy / Glad' },
+  { word: '落雨', word_s: '落雨', poj: "lo̍h-hō͘", pinyin: 'luò yǔ', meaning_t: '下雨', meaning_s: '下雨', meaning_en: 'Raining' },
+  { word: '𨒪迌', word_s: '𨒪迌', poj: 'chhit-thô', pinyin: 'qī tó', meaning_t: '出去玩', meaning_s: '出去玩', meaning_en: 'Going out to play' },
+  { word: '媠', word_s: '媠', poj: 'súi', pinyin: 'shuǐ', meaning_t: '漂亮', meaning_s: '漂亮', meaning_en: 'Beautiful' },
+  { word: '多謝', word_s: '多谢', poj: 'to-siā', pinyin: 'duō xiè', meaning_t: '謝謝', meaning_s: '谢谢', meaning_en: 'Thank you' },
+  { word: '走路', word_s: '走路', poj: "cháu-lō͘", pinyin: 'zǒu lù', meaning_t: '走路', meaning_s: '走路', meaning_en: 'Walking' },
+  { word: '天氣', word_s: '天气', poj: "thiⁿ-khì", pinyin: 'tiān qì', meaning_t: '天氣', meaning_s: '天气', meaning_en: 'Weather' },
+  { word: '海', word_s: '海', poj: 'hái', pinyin: 'hǎi', meaning_t: '海', meaning_s: '海', meaning_en: 'Sea / Ocean' },
+  { word: '囝仔', word_s: '囝仔', poj: 'gín-á', pinyin: 'jiǎn zǎi', meaning_t: '小孩', meaning_s: '小孩', meaning_en: 'Child / Kid' },
+  { word: '做工', word_s: '做工', poj: 'chò-kang', pinyin: 'zuò gōng', meaning_t: '工作', meaning_s: '工作', meaning_en: 'Working' },
+  { word: '暗暝', word_s: '暗暝', poj: 'àm-mê', pinyin: 'àn míng', meaning_t: '晚上', meaning_s: '晚上', meaning_en: 'Night time' },
+  { word: '日頭', word_s: '日头', poj: "ji̍t-thâu", pinyin: 'rì tóu', meaning_t: '太陽', meaning_s: '太阳', meaning_en: 'Sun' },
+  { word: '風', word_s: '风', poj: 'hong', pinyin: 'fēng', meaning_t: '風', meaning_s: '风', meaning_en: 'Wind' },
   // 金門話特色詞彙
-  { word: '物代', word_s: '物代', poj: 'mi̍h-tāi', pinyin: 'wù dài', meaning_t: '怎麼了？還好嗎？（金門招呼語）', meaning_s: '怎么了？还好吗？（金门招呼语）' },
-  { word: '巴刹', word_s: '巴刹', poj: 'pa-sat', pinyin: 'bā shā', meaning_t: '市場（馬來語借詞）', meaning_s: '市场（马来语借词）' },
-  { word: '頭家', word_s: '头家', poj: 'thâu-ke', pinyin: 'tóu jiā', meaning_t: '老闆', meaning_s: '老板' },
-  { word: '鹹酸甜', word_s: '咸酸甜', poj: 'kiâm-sng-tinn', pinyin: 'xián suān tián', meaning_t: '鹹酸甜（蜜餞）', meaning_s: '咸酸甜（蜜饯）' },
-  { word: '佇遮', word_s: '佇遮', poj: 'tī-tsiô', pinyin: 'zhù zhē', meaning_t: '在這裡', meaning_s: '在这里' },
-  { word: '燒酒', word_s: '烧酒', poj: 'sio-chiú', pinyin: 'shāo jiǔ', meaning_t: '酒（高粱酒）', meaning_s: '酒（高粱酒）' },
-  { word: '阿公', word_s: '阿公', poj: 'a-kong', pinyin: 'ā gōng', meaning_t: '爺爺', meaning_s: '爷爷' },
-  { word: '阿媽', word_s: '阿妈', poj: 'a-má', pinyin: 'ā mā', meaning_t: '奶奶', meaning_s: '奶奶' },
-  { word: '返去', word_s: '返去', poj: 'tńg-khì', pinyin: 'fǎn qù', meaning_t: '回去、回家', meaning_s: '回去、回家' },
-  { word: '故鄉', word_s: '故乡', poj: 'kò͘-hiong', pinyin: 'gù xiāng', meaning_t: '故鄉', meaning_s: '故乡' },
-  { word: '手路菜', word_s: '手路菜', poj: 'chhiú-lō͘-chhài', pinyin: 'shǒu lù cài', meaning_t: '拿手菜', meaning_s: '拿手菜' },
-  { word: '思念', word_s: '思念', poj: 'su-liām', pinyin: 'sī niàn', meaning_t: '想念', meaning_s: '想念' },
+  { word: '物代', word_s: '物代', poj: 'mi̍h-tāi', pinyin: 'wù dài', meaning_t: '怎麼了？還好嗎？', meaning_s: '怎么了？还好吗？', meaning_en: "What's up? How are you?" },
+  { word: '巴刹', word_s: '巴刹', poj: 'pa-sat', pinyin: 'bā shā', meaning_t: '市場', meaning_s: '市场', meaning_en: 'Market' },
+  { word: '頭家', word_s: '头家', poj: 'thâu-ke', pinyin: 'tóu jiā', meaning_t: '老闆', meaning_s: '老板', meaning_en: 'Boss / Shop owner' },
+  { word: '鹹酸甜', word_s: '咸酸甜', poj: 'kiâm-sng-tinn', pinyin: 'xián suān tián', meaning_t: '蜜餞', meaning_s: '蜜饯', meaning_en: 'Preserved fruit snack' },
+  { word: '佇遮', word_s: '佇遮', poj: 'tī-tsiô', pinyin: 'zhù zhē', meaning_t: '在這裡', meaning_s: '在这里', meaning_en: 'Over here' },
+  { word: '燒酒', word_s: '烧酒', poj: 'sio-chiú', pinyin: 'shāo jiǔ', meaning_t: '酒、高粱酒', meaning_s: '酒、高粱酒', meaning_en: 'Liquor / Kaoliang' },
+  { word: '阿公', word_s: '阿公', poj: 'a-kong', pinyin: 'ā gōng', meaning_t: '爺爺', meaning_s: '爷爷', meaning_en: 'Grandfather' },
+  { word: '阿媽', word_s: '阿妈', poj: 'a-má', pinyin: 'ā mā', meaning_t: '奶奶', meaning_s: '奶奶', meaning_en: 'Grandmother' },
+  { word: '返去', word_s: '返去', poj: 'tńg-khì', pinyin: 'fǎn qù', meaning_t: '回去、回家', meaning_s: '回去、回家', meaning_en: 'Going home' },
+  { word: '故鄉', word_s: '故乡', poj: 'kò͘-hiong', pinyin: 'gù xiāng', meaning_t: '故鄉', meaning_s: '故乡', meaning_en: 'Homeland' },
+  { word: '手路菜', word_s: '手路菜', poj: 'chhiú-lō͘-chhài', pinyin: 'shǒu lù cài', meaning_t: '拿手菜', meaning_s: '拿手菜', meaning_en: 'Signature dish' },
+  { word: '思念', word_s: '思念', poj: 'su-liām', pinyin: 'sī niàn', meaning_t: '想念', meaning_s: '想念', meaning_en: 'Missing someone' },
 ];
 
 // i18n
@@ -137,11 +137,13 @@ document.getElementById('start-btn').addEventListener('click', function() {
   initWaveform();
 });
 
-// Word display — show MEANING as prompt, hide dialect chars until after recording
+// Word display — show ALL THREE meanings as prompt, hide dialect chars until after recording
 function updateWordDisplay() {
   var w = selectedWords[currentWordIdx];
-  // Show meaning as the big prompt (not dialect characters — avoid influencing pronunciation)
-  document.getElementById('word-display').textContent = getMeaning(w);
+  // Show meaning in all three scripts simultaneously
+  document.getElementById('word-display').textContent = w.meaning_t;
+  document.getElementById('word-display-s').textContent = w.meaning_s !== w.meaning_t ? w.meaning_s : '';
+  document.getElementById('word-display-en').textContent = w.meaning_en;
   document.getElementById('word-hint').textContent = lang === 'cn'
     ? '用你的闽南语说这个词'
     : '用你的閩南語說這個詞';
