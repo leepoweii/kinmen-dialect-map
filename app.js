@@ -38,7 +38,7 @@ var UI_TEXT = {
   tw: {
     title_prefix: '世界的',
     title_kinmen: '金門',
-    subtitle: '閩南語聲音地圖',
+    subtitle: '福建話/閩南語 聲音地圖  Hokkien Sound Map',
     desc: '金門人走向世界，帶走了語言。\n同一個詞，在檳城、新加坡、金門，\n聽起來一樣，又不一樣。\n\n錄下你的聲音，聽聽世界各地的金門人怎麼說。',
     start: '開始錄音',
     record_hint: '按下開始錄音',
@@ -57,7 +57,7 @@ var UI_TEXT = {
   cn: {
     title_prefix: '世界的',
     title_kinmen: '金门',
-    subtitle: '闽南语声音地图',
+    subtitle: '福建话/闽南语 声音地图  Hokkien Sound Map',
     desc: '金门人走向世界，带走了语言。\n同一个词，在槟城、新加坡、金门，\n听起来一样，又不一样。\n\n录下你的声音，听听世界各地的金门人怎么说。',
     start: '开始录音',
     record_hint: '按下开始录音',
@@ -145,8 +145,8 @@ function updateWordDisplay() {
   document.getElementById('word-display-s').textContent = w.meaning_s !== w.meaning_t ? w.meaning_s : '';
   document.getElementById('word-display-en').textContent = w.meaning_en;
   document.getElementById('word-hint').textContent = lang === 'cn'
-    ? '用你的闽南语说这个词'
-    : '用你的閩南語說這個詞';
+    ? '用你的福建话/闽南语说这个词'
+    : '用你的福建話/閩南語說這個詞';
   // Hide the reveal section until after recording
   document.getElementById('word-reveal').style.display = 'none';
   document.getElementById('word-counter').textContent = (currentWordIdx + 1) + ' / ' + selectedWords.length;
