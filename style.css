@@ -173,6 +173,42 @@ body {
   letter-spacing: 0.05em;
 }
 
+.reveal-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.replay-btn,
+.next-word-btn {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.replay-btn {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.replay-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+.next-word-btn {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.next-word-btn:hover {
+  background: var(--color-surface);
+}
+
 .record-btn {
   width: 90px;
   height: 90px;

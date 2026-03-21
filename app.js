@@ -155,12 +155,34 @@ function updateWordDisplay() {
   document.getElementById('record-btn').classList.remove('recording');
 }
 
-// After recording: reveal dialect characters + romanization
+// After recording: reveal dialect characters + romanization + replay button
 function revealDialectInfo() {
   var w = selectedWords[currentWordIdx];
   document.getElementById('word-dialect').textContent = getWord(w);
   document.getElementById('word-romanization').textContent = w.poj + '  ·  ' + w.pinyin;
   document.getElementById('word-reveal').style.display = 'block';
+
+  // Bind replay button to the latest recording
+  var lastRecording = recordings[recordings.length - 1];
+  var replayBtn = document.getElementById('replay-btn');
+  var nextBtn = document.getElementById('next-word-btn');
+
+  if (lastRecording) {
+    replayBtn.style.display = 'inline-block';
+    replayBtn.onclick = function() {
+      var audio = new Audio(lastRecording.url);
+      safePlay(audio);
+    };
+  } else {
+    replayBtn.style.display = 'none';
+  }
+
+  nextBtn.style.display = 'inline-block';
+  nextBtn.onclick = function() {
+    nextBtn.style.display = 'none';
+    replayBtn.style.display = 'none';
+    nextWord();
+  };
 }
 
 // Language toggle
@@ -219,6 +241,16 @@ function animateWaveform() {
   }
 }
 
+// Safe play — handles autoplay policy rejection on mobile
+function safePlay(audio) {
+  var playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(function(err) {
+      console.warn('播放失敗:', err);
+    });
+  }
+}
+
 // Recording
 document.getElementById('record-btn').addEventListener('click', function() {
   if (!isRecording) {
@@ -229,7 +261,8 @@ document.getElementById('record-btn').addEventListener('click', function() {
       analyser.fftSize = 256;
       source.connect(analyser);
 
-      mediaRecorder = new MediaRecorder(stream);
+      var mimeType = MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : 'audio/mp4';
+      mediaRecorder = new MediaRecorder(stream, { mimeType: mimeType });
       var chunks = [];
 
       mediaRecorder.ondataavailable = function(e) {
@@ -237,7 +270,7 @@ document.getElementById('record-btn').addEventListener('click', function() {
       };
 
       mediaRecorder.onstop = function() {
-        var blob = new Blob(chunks, { type: 'audio/webm' });
+        var blob = new Blob(chunks, { type: mimeType });
         recordings.push({
           word: selectedWords[currentWordIdx].word,
           blob: blob,
@@ -246,13 +279,13 @@ document.getElementById('record-btn').addEventListener('click', function() {
         stream.getTracks().forEach(function(track) { track.stop(); });
         myCount++;
         document.getElementById('my-count').textContent = myCount;
-        // Reveal dialect info after recording, pause before next word
+        // Reveal dialect info + replay button after recording
         revealDialectInfo();
-        setTimeout(nextWord, 2000);
       };
 
       mediaRecorder.start();
       isRecording = true;
+      document.getElementById('word-reveal').style.display = 'none';
       document.getElementById('record-btn').classList.add('recording');
       document.getElementById('record-hint').textContent = t('recording_hint');
       animateWaveform();
@@ -262,6 +295,8 @@ document.getElementById('record-btn').addEventListener('click', function() {
   } else {
     mediaRecorder.stop();
     isRecording = false;
+    document.getElementById('record-btn').classList.remove('recording');
+    document.getElementById('record-hint').textContent = t('record_hint');
     cancelAnimationFrame(animFrameId);
     waveformBars.forEach(function(bar) { bar.style.height = '4px'; });
   }
@@ -355,7 +390,7 @@ function playRandomFromLocation(locationName) {
   if (recordings.length > 0) {
     var rand = recordings[Math.floor(Math.random() * recordings.length)];
     var audio = new Audio(rand.url);
-    audio.play();
+    safePlay(audio);
 
     var markerEl = document.getElementById('marker-' + locationName);
     if (markerEl) {
