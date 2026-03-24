@@ -128,8 +128,24 @@ function showScreen(id) {
 // Language toggle
 document.getElementById('lang-toggle').addEventListener('click', toggleLang);
 
-// Landing
+// Survey data
+let surveyData = {};
+
+// Landing → Survey
 document.getElementById('start-btn').addEventListener('click', function() {
+  showScreen('survey-screen');
+});
+
+// Survey → Record
+document.getElementById('survey-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  surveyData = {
+    surname: document.getElementById('survey-surname').value,
+    region: document.getElementById('survey-region').value,
+    village: document.getElementById('survey-village').value,
+    location: document.getElementById('survey-location').value,
+    consent: document.getElementById('survey-consent').checked,
+  };
   selectedWords = shuffle(WORDS).slice(0, 5);
   currentWordIdx = 0;
   showScreen('record-screen');

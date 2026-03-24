@@ -10,8 +10,11 @@
 </head>
 <body>
 
+  <!-- DEMO BANNER -->
+  <div id="demo-banner">DEMO — 此為研究流程展示，不儲存任何資料</div>
+
   <!-- LANG TOGGLE -->
-  <button id="lang-toggle" style="position:fixed;top:1rem;right:1rem;z-index:9999;background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-text);width:36px;height:36px;font-size:0.85rem;cursor:pointer;font-family:var(--font-serif);font-weight:700;">简</button>
+  <button id="lang-toggle" style="position:fixed;top:calc(28px + 1rem);right:1rem;z-index:9999;background:var(--color-surface);border:1px solid var(--color-border);color:var(--color-text);width:36px;height:36px;font-size:0.85rem;cursor:pointer;font-family:var(--font-serif);font-weight:700;">简</button>
 
   <!-- LANDING -->
   <div id="landing" class="screen active">
@@ -24,6 +27,49 @@
       錄下你的聲音，聽聽世界各地的金門人怎麼說。
     </p>
     <button class="btn-primary" id="start-btn">開始錄音</button>
+  </div>
+
+  <!-- SURVEY -->
+  <div id="survey-screen" class="screen">
+    <div class="survey-container">
+      <div class="survey-steps">
+        <p class="survey-steps-title">研究流程</p>
+        <p class="survey-steps-list">① 填寫基本資料 → ② 錄製閩南語詞彙 → ③ 聆聽各地版本 → ④ 填寫感受問卷</p>
+      </div>
+      <form id="survey-form">
+        <div class="form-group">
+          <label for="survey-surname">姓氏</label>
+          <input type="text" id="survey-surname" placeholder="例如「李」「陳」" required>
+        </div>
+        <div class="form-group">
+          <label for="survey-region">家族來自金門哪個地區？</label>
+          <select id="survey-region" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="金城鎮">金城鎮</option>
+            <option value="金湖鎮">金湖鎮</option>
+            <option value="金沙鎮">金沙鎮</option>
+            <option value="金寧鄉">金寧鄉</option>
+            <option value="烈嶼鄉">烈嶼鄉</option>
+            <option value="不確定">不確定</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="survey-village">家族村莊 <span class="optional-tag">選填</span></label>
+          <input type="text" id="survey-village" placeholder="例如「瓊林」「水頭」">
+        </div>
+        <div class="form-group">
+          <label for="survey-location">你目前生活在哪裡？</label>
+          <input type="text" id="survey-location" placeholder="例如「台北」「檳城」「新加坡」" required>
+        </div>
+        <div class="form-group form-group-checkbox">
+          <label>
+            <input type="checkbox" id="survey-consent" required>
+            <span>我了解此為研究展示，同意提供以上資料用於學術研究</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary" id="survey-start-btn">開始錄音</button>
+      </form>
+    </div>
   </div>
 
   <!-- RECORD -->

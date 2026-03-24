@@ -27,6 +27,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* DEMO BANNER */
+#demo-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10000;
+  background: var(--color-accent);
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-family: var(--font-body);
+  padding: 0.35rem 1rem;
+  letter-spacing: 0.1em;
+}
+
+body { padding-top: 28px; }
+
 .screen { display: none; min-height: 100vh; }
 .screen.active { display: flex; flex-direction: column; }
 
@@ -442,4 +458,113 @@ body {
 .thank-you p {
   color: var(--color-text-secondary);
   max-width: 380px; line-height: 1.8;
+}
+
+/* SURVEY SCREEN */
+#survey-screen {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.survey-container {
+  max-width: 460px;
+  width: 100%;
+}
+
+.survey-steps {
+  margin-bottom: 2.5rem;
+  padding: 1.2rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(201, 130, 26, 0.06);
+  text-align: left;
+}
+
+.survey-steps-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.survey-steps-list {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+#survey-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  border-color: var(--color-accent);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.optional-tag {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-left: 0.3rem;
+}
+
+.form-group-checkbox {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group-checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+  margin-top: 0.2rem;
+  accent-color: var(--color-primary);
+}
+
+#survey-form .btn-primary {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
