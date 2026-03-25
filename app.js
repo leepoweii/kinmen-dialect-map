@@ -326,13 +326,24 @@ function nextWord() {
   currentWordIdx++;
   document.getElementById('progress-fill').style.width = (currentWordIdx / selectedWords.length * 100) + '%';
   if (currentWordIdx >= selectedWords.length) {
-    document.getElementById('thank-you').classList.add('show');
+    showScreen('posttest-screen');
     return;
   }
   updateWordDisplay();
 }
 
 document.getElementById('skip-btn').addEventListener('click', nextWord);
+
+// Posttest -> Thank you
+document.getElementById('posttest-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  surveyData.posttest_belong = document.getElementById('posttest-belong').value;
+  surveyData.posttest_identity = document.getElementById('posttest-identity').value;
+  surveyData.posttest_attachment = document.getElementById('posttest-attachment').value;
+  console.log('Survey data (pre+post):', surveyData);
+  showScreen('record-screen');
+  document.getElementById('thank-you').classList.add('show');
+});
 
 // Thank you -> Map
 document.getElementById('explore-map-btn').addEventListener('click', function() {

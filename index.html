@@ -145,6 +145,50 @@
   </div>
 
   <!-- THANK YOU -->
+  <!-- POSTTEST -->
+  <div id="posttest-screen" class="screen">
+    <div class="survey-container">
+      <h2 style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.5rem">後測問卷</h2>
+      <p style="font-size:14px;color:var(--color-text-secondary);margin-bottom:16px">你剛才錄製了自己的閩南語，也聽到了不同地方的版本。<br>請根據你<strong>現在</strong>的感受回答（1=完全不同意，5=非常同意）</p>
+      <form id="posttest-form">
+        <div class="form-group">
+          <label for="posttest-belong">我覺得自己跟金門有很深的連結</label>
+          <select id="posttest-belong" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="posttest-identity">「金門人」這個身份對我來說很重要</label>
+          <select id="posttest-identity" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="posttest-attachment">我對金門這個地方有情感上的依附</label>
+          <select id="posttest-attachment" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">完成</button>
+      </form>
+    </div>
+  </div>
+
   <div class="thank-you" id="thank-you">
     <h2>多謝你的聲音</h2>
     <p>你的錄音已經加入世界的金門聲音地圖。<br>現在來聽聽其他地方的人怎麼說同一個詞。</p>
