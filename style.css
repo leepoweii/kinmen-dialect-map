@@ -461,7 +461,8 @@ body { padding-top: 28px; }
 }
 
 /* SURVEY SCREEN */
-#survey-screen {
+#survey-screen,
+#posttest-screen {
   justify-content: center;
   align-items: center;
   text-align: center;

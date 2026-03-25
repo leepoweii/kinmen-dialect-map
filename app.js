@@ -326,7 +326,7 @@ function nextWord() {
   currentWordIdx++;
   document.getElementById('progress-fill').style.width = (currentWordIdx / selectedWords.length * 100) + '%';
   if (currentWordIdx >= selectedWords.length) {
-    showScreen('posttest-screen');
+    document.getElementById('thank-you').classList.add('show');
     return;
   }
   updateWordDisplay();
@@ -334,15 +334,28 @@ function nextWord() {
 
 document.getElementById('skip-btn').addEventListener('click', nextWord);
 
-// Posttest -> Thank you
+// Map -> Posttest
+document.getElementById('go-to-posttest').addEventListener('click', function() {
+  showScreen('posttest-screen');
+});
+
+// Posttest -> Done
 document.getElementById('posttest-form').addEventListener('submit', function(e) {
   e.preventDefault();
   surveyData.posttest_belong = document.getElementById('posttest-belong').value;
   surveyData.posttest_identity = document.getElementById('posttest-identity').value;
   surveyData.posttest_attachment = document.getElementById('posttest-attachment').value;
   console.log('Survey data (pre+post):', surveyData);
-  showScreen('record-screen');
-  document.getElementById('thank-you').classList.add('show');
+  var form = document.getElementById('posttest-form');
+  while (form.firstChild) form.removeChild(form.firstChild);
+  var h = document.createElement('h2');
+  h.style.cssText = 'font-family:var(--font-serif);margin:2rem 0';
+  h.textContent = '感謝你的參與！';
+  var p = document.createElement('p');
+  p.style.color = 'var(--color-text-secondary)';
+  p.textContent = '你的前測與後測資料已記錄（Demo 不儲存）。';
+  form.appendChild(h);
+  form.appendChild(p);
 });
 
 // Thank you -> Map
