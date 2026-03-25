@@ -34,7 +34,7 @@
     <div class="survey-container">
       <div class="survey-steps">
         <p class="survey-steps-title">研究流程</p>
-        <p class="survey-steps-list">① 填寫基本資料 → ② 錄製閩南語詞彙 → ③ 聆聽各地版本 → ④ 填寫感受問卷</p>
+        <p class="survey-steps-list">① 填寫基本資料 + 前測 → ② 錄製閩南語詞彙 → ③ 聆聽各地版本 → ④ 後測問卷</p>
       </div>
       <form id="survey-form">
         <div class="form-group">
@@ -60,6 +60,36 @@
         <div class="form-group">
           <label for="survey-location">你目前生活在哪裡？</label>
           <input type="text" id="survey-location" placeholder="例如「台北」「檳城」「新加坡」" required>
+        </div>
+        <div class="form-group" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--color-border)">
+          <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:12px">前測：請根據你目前的感受回答（1=完全不同意，5=非常同意）</p>
+          <label for="pretest-belong">我覺得自己跟金門有很深的連結</label>
+          <select id="pretest-belong" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
+          <label for="pretest-identity" style="margin-top:8px">「金門人」這個身份對我來說很重要</label>
+          <select id="pretest-identity" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
+          <label for="pretest-attachment" style="margin-top:8px">我對金門這個地方有情感上的依附</label>
+          <select id="pretest-attachment" required>
+            <option value="" disabled selected>請選擇</option>
+            <option value="1">1 完全不同意</option>
+            <option value="2">2</option>
+            <option value="3">3 普通</option>
+            <option value="4">4</option>
+            <option value="5">5 非常同意</option>
+          </select>
         </div>
         <div class="form-group form-group-checkbox">
           <label>

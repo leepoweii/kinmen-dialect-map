@@ -145,6 +145,9 @@ document.getElementById('survey-form').addEventListener('submit', function(e) {
     village: document.getElementById('survey-village').value,
     location: document.getElementById('survey-location').value,
     consent: document.getElementById('survey-consent').checked,
+    pretest_belong: document.getElementById('pretest-belong').value,
+    pretest_identity: document.getElementById('pretest-identity').value,
+    pretest_attachment: document.getElementById('pretest-attachment').value,
   };
   selectedWords = shuffle(WORDS).slice(0, 5);
   currentWordIdx = 0;
